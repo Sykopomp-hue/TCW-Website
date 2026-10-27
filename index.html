@@ -139,7 +139,45 @@ svg{display:block;width:100%;height:auto}
 .refs a{font-size:.85rem}
 footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;font-family:var(--font-mono)}
 
+/* top navigation */
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:65;margin:0 -16px;padding:0 16px;background:rgba(11,15,25,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topnav .in-wrap{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:14px;height:52px}
+.topnav .brand{font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--fg);text-decoration:none;white-space:nowrap}
+.topnav .brand span{color:var(--accent)}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.topnav ul::-webkit-scrollbar{display:none}
+.topnav a.lnk{display:block;font-family:var(--font-mono);font-size:.76rem;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:99px;white-space:nowrap;transition:color .2s,background .2s}
+.topnav a.lnk:hover{color:var(--fg)}
+.topnav a.lnk.active{color:var(--bg);background:var(--accent)}
+
+/* dashboard */
+.dash{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 0}
+.tile{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;text-decoration:none;color:var(--fg);transition:border-color .2s,background .2s,transform .2s}
+.tile:hover,.tile:focus-visible{border-color:var(--accent);background:var(--surface-2);transform:translateY(-2px)}
+.tile .n{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em}
+.tile b{font-family:var(--font-display);font-size:1.05rem;line-height:1.2}
+.tile small{color:var(--muted);font-size:.84rem;line-height:1.45}
+.tile.media{border-style:dashed}
+
+/* photos and video */
+figure.photo,figure.video{padding:0;overflow:hidden}
+figure.photo img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface-2)}
+figure.photo.tall img{aspect-ratio:4/3}
+figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size:.88rem;line-height:1.5}
+.credit{display:block;margin-top:4px;font-family:var(--font-mono);font-size:.72rem;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0}
+.gallery figure.photo{margin:0}
+.gallery figure.photo img{aspect-ratio:4/3}
+.frame{position:relative;aspect-ratio:16/9;background:#000}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hero-img{margin-top:28px}
+
 @media (max-width:560px){
+  .dash{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr}
+  .topnav .brand{display:none}
+
   body{font-size:16px}
   .bento{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
@@ -158,7 +196,21 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
 
 <div class="progress" aria-hidden="true"><i id="pbar"></i></div>
 
-<main>
+<nav class="topnav" aria-label="Sections"><div class="in-wrap">
+  <a class="brand" href="#top">Reskill<span>.</span></a>
+  <ul>
+    <li><a class="lnk" href="#dashboard">Dashboard</a></li>
+    <li><a class="lnk" href="#issue">Issue</a></li>
+    <li><a class="lnk" href="#interviews">Interviews</a></li>
+    <li><a class="lnk" href="#approach">Solution</a></li>
+    <li><a class="lnk" href="#pilot">Pilot</a></li>
+    <li><a class="lnk" href="#evaluate">Results</a></li>
+    <li><a class="lnk" href="#present">Website</a></li>
+    <li><a class="lnk" href="#refs">Sources</a></li>
+  </ul>
+</div></nav>
+
+<main id="top">
 <header class="hero">
   <div class="meta">
     <span class="chip">MO-SS033 Contemporary World</span>
@@ -175,7 +227,24 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
     <div class="stat"><b data-count="25" data-prefix="US$" data-suffix="M">US$25M</b><span>IBPAP's yearly workforce commitment, minimum</span></div>
   </div>
   <p class="cite" style="margin-top:14px">Sources: BPO and Beyond (2026); Macayan (2026a); PSA Intelligence (2026); Nearshore Americas (n.d.).</p>
+<figure class="photo reveal hero-img"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Eastwood_City%2C_Libis%2C_Quezon_City.jpg/1280px-Eastwood_City%2C_Libis%2C_Quezon_City.jpg" alt="Skyline of Eastwood City office towers in Quezon City" loading="lazy" decoding="async"><figcaption>Eastwood City in Quezon City, one of the first IT parks built for the BPO boom. <span class="credit">Photo: Lawrence Ruiz · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Eastwood_City,_Libis,_Quezon_City.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure>
 </header>
+
+<section id="dashboard" style="padding-top:64px">
+  <span class="kicker reveal">Dashboard</span>
+  <h2 class="reveal">Jump to the part you want</h2>
+  <div class="dash reveal">
+    <a class="tile" href="#issue"><span class="n">01 · ISSUE</span><b>Will AI take over?</b><small>The numbers, causes, effects and who has a stake.</small></a>
+    <a class="tile" href="#interviews"><span class="n">02 · INTERVIEWS</span><b>What workers said</b><small>Five BPO workers on how AI is arriving at work.</small></a>
+    <a class="tile" href="#approach"><span class="n">03 · SOLUTION</span><b>Reskill, then redeploy</b><small>My proposal and the three options I scored.</small></a>
+    <a class="tile" href="#pilot"><span class="n">04 · PILOT</span><b>How it would run</b><small>A one-year plan, step by step.</small></a>
+    <a class="tile" href="#evaluate"><span class="n">05 · RESULTS</span><b>Measuring success</b><small>SMART targets and what to watch.</small></a>
+    <a class="tile" href="#present"><span class="n">06 · WEBSITE</span><b>Why a website</b><small>Format, audience and how I cite sources.</small></a>
+    <a class="tile media" href="#watch-ai"><span class="n">▶ VIDEO</span><b>AI on the call floor</b><small>Bloomberg on AI tools in PH call centers.</small></a>
+    <a class="tile media" href="#watch-workers"><span class="n">▶ VIDEO</span><b>Workers' concerns</b><small>ANC with a BPO workers' group.</small></a>
+    <a class="tile media" href="#watch-ibpap"><span class="n">▶ VIDEO</span><b>The industry's view</b><small>ANC interviews IBPAP's Jack Madrid.</small></a>
+  </div>
+</section>
 
 <!-- 1 -->
 <section id="issue">
@@ -185,6 +254,7 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
   <h3 class="reveal">What the issue is, and why it matters</h3>
   <p class="reveal">My issue sits under the globalization driver of technology: automation and AI replacing jobs in the Philippine BPO industry, and the common belief that AI will fully take over those jobs. It matters because about 1.9 million Filipinos work in the industry, which brings in roughly US$40 billion a year (BPO and Beyond, 2026). Many are young, many work nights, and many are first-time earners supporting a household.</p>
   <p class="reveal">The industry body IBPAP lowered its 2028 worker target from 2.5 million to between 1.85 and 2.14 million (Macayan, 2026a), and reported job growth has slowed to about 3% (PSA Intelligence, 2026). The risk is real. The question is how large it is and who gets hit first.</p>
+  <div class="gallery"><figure class="photo reveal "><img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Teletech_call_cent_BACOLOD.jpg" alt="Rows of agents at workstations on a call center production floor" loading="lazy" decoding="async"><figcaption>A TeleTech production floor in the Philippines (2008). <span class="credit">Photo: Maverx · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Teletech_call_cent_BACOLOD.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="photo reveal "><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Cebu_IT_Park_top_view_Padrigas_%28Lahug%2C_Cebu_City%3B_01-09-2024%29.jpg/1280px-Cebu_IT_Park_top_view_Padrigas_%28Lahug%2C_Cebu_City%3B_01-09-2024%29.jpg" alt="Aerial view of office towers in Cebu IT Park" loading="lazy" decoding="async"><figcaption>Cebu IT Park, a major BPO hub outside Metro Manila. <span class="credit">Photo: Patrickroque01 · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Cebu_IT_Park_top_view_Padrigas_(Lahug,_Cebu_City;_01-09-2024).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="photo reveal "><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Nighttime_Metro_Manila_skyline_seen_from_atop_of_Metrobank_Center_in_Taguig_City.jpg/1280px-Nighttime_Metro_Manila_skyline_seen_from_atop_of_Metrobank_Center_in_Taguig_City.jpg" alt="Metro Manila skyline lit up at night" loading="lazy" decoding="async"><figcaption>Metro Manila at night, when most voice accounts run for US clients. <span class="credit">Photo: YZJay · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Nighttime_Metro_Manila_skyline_seen_from_atop_of_Metrobank_Center_in_Taguig_City.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure></div>
 
   <h3 class="reveal">Causes, effects and stakeholders</h3>
   <p class="reveal">Tap or hover a card to open it.</p>
@@ -223,10 +293,13 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
     </div>
   </div>
 
-  <h3 class="reveal">What the interviews added</h3>
+  <figure class="video reveal" id="watch-ai"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/NPJYKcu5si0" title="Humans and AI Bots Blur in the World's Call Center Capital" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>Humans and AI Bots Blur in the World's Call Center Capital</b> Shows an AI accent-changing tool used by Filipino agents, and what tools like it could mean for the jobs behind them. <span class="credit">Bloomberg Big Take Asia, 2024 · 16 min · <a href="https://www.youtube.com/watch?v=NPJYKcu5si0" target="_blank" rel="noopener">Watch on YouTube</a></span></figcaption></figure>
+
+  <h3 class="reveal" id="interviews">What the interviews added</h3>
   <p class="reveal">I interviewed five BPO workers. Their accounts matched the reports on one point: the technology is arriving unevenly.</p>
   <blockquote class="q reveal">Training at his company is still "more of a wish."<small>Aeon, BPO worker (interview)</small></blockquote>
   <p class="reveal" style="margin-top:14px">Another interviewee, Joy, described her employer removing an AI tool and having staff handle the task again. Both show that AI use in BPO is still being tested, which supports my position that preparing workers matters more than predicting mass job loss.</p>
+  <figure class="video reveal" id="watch-workers"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/pZDmL0o8OZQ" title="Many in BPO sector concerned about being replaced by AI" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>Many in BPO sector concerned about being replaced by AI</b> The BPO Industry Employees Network (BIEN) explains why workers are worried, which matches what my interviewees told me. <span class="credit">ANC Beyond the Exchange, April 2026 · 12 min · <a href="https://www.youtube.com/watch?v=pZDmL0o8OZQ" target="_blank" rel="noopener">Watch on YouTube</a></span></figcaption></figure>
 
   <h3 class="reveal">Sources I used</h3>
   <p class="reveal">I used industry and government reporting (Outsource Accelerator, People Matters, PSA Intelligence, BPO and Beyond, Nearshore Americas), a Singapore policy report (Free Malaysia Today), and my own interviews. Where two reports disagree, I say so instead of picking one. Reports put the number of workers to be upskilled at over 300,000 and at up to 340,000 a year. The full list is in <a href="#refs">References</a>.</p>
@@ -240,6 +313,7 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
 
   <h3 class="reveal">Why it works</h3>
   <p class="reveal">It answers the real risk directly. IBPAP is already funding training, the government-backed track targets 10,000 BPO workers trained in AI in 2026 and 34,000 more through partner institutions (Macayan, 2026b), and the national goal is about 2 million AI-ready workers (PSA Intelligence, 2026). Redeployment protects the entry-level workers who are exposed first. It also fits DOLE's view that jobs are being transformed, not erased.</p>
+  <figure class="video reveal" id="watch-ibpap"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/Uho0ckDc8yY" title="IBPAP's Jack Madrid on how AI is transforming IT-BPM" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>IBPAP's Jack Madrid on how AI is transforming IT-BPM</b> The industry body that would lead my solution explains how it sees AI changing the work. <span class="credit">ANC Business Outlook, July 2026 · 22 min · <a href="https://www.youtube.com/watch?v=Uho0ckDc8yY" target="_blank" rel="noopener">Watch on YouTube</a></span></figcaption></figure>
 
   <h3 class="reveal">Alternatives I considered</h3>
   <p class="reveal">I scored three solutions from 1 to 4 on five class criteria: problem resolution and scope, measurable impact, feasibility and implementation, relevance, and time efficiency. The bar shows the weighted average on the 4-point scale.</p>
@@ -261,7 +335,7 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
     </div>
   </div>
 
-  <h3 class="reveal">How it works in practice</h3>
+  <h3 class="reveal" id="pilot">How it works in practice</h3>
   <p class="reveal">I would start with a pilot at one or two IBPAP member companies and expand only after the results are in.</p>
   <ol class="timeline reveal" style="padding-left:0">
     <li><b>MONTHS 0 TO 3</b><p>List at-risk roles, update course content, open sign-up to current agents, and name a coordinator at each pilot company.</p></li>
@@ -270,6 +344,7 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
     <li><b>AFTER ONE YEAR</b><p>Publish the results, refine the approach, then expand to more member companies.</p></li>
   </ol>
   <p class="reveal">Delivery is split by role. IBPAP and BPO companies run the training with TESDA support. Companies handle redeployment. IBPAP reports results with DOLE oversight. It can draw on Project Unlad, IBPAP's US$25 million yearly commitment, TESDA's skills-training mandate (RA 7796), and CREATE Act incentives (RA 11534).</p>
+  <figure class="photo reveal tall"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/2025-10-10_%E2%80%93_PBBM_reaffirms_support_for_globally_competitive_skills_dev%E2%80%99t_thru_TESDA_%2804%29.jpg/1280px-2025-10-10_%E2%80%93_PBBM_reaffirms_support_for_globally_competitive_skills_dev%E2%80%99t_thru_TESDA_%2804%29.jpg" alt="Officials touring a TESDA skills training facility" loading="lazy" decoding="async"><figcaption>A TESDA training center in October 2025. TESDA would support the training side of the pilot. <span class="credit">Photo: Presidential Communications Office · Public domain · <a href="https://commons.wikimedia.org/wiki/File:2025-10-10_%E2%80%93_PBBM_reaffirms_support_for_globally_competitive_skills_dev%E2%80%99t_thru_TESDA_(04).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure>
 </section>
 
 <!-- 3 -->
@@ -342,7 +417,7 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
 <section id="present">
   <span class="kicker reveal">4 · Presenting my work</span>
   <h2 class="reveal">Why a website</h2>
-  <p class="reveal"><b>Format.</b> A website lets me show the issue, the evidence and the numbers in one place, with charts and short cards that readers open when they want detail. It works on a phone, which is where most of my audience will read it.</p>
+  <p class="reveal"><b>Format.</b> A website lets me show the issue, the evidence and the numbers in one place, with charts and short cards that readers open when they want detail. It works on a phone, which is where most of my audience will read it. The dashboard and top menu let readers jump straight to the part they need, and real photos and news clips show the issue as it looks on the ground.</p>
   <p class="reveal"><b>Audience.</b> A general audience: BPO workers and their families, students considering a BPO job, and the employers and officials who decide on training. No technical background is needed.</p>
   <p class="reveal"><b>Clarity and sources.</b> Each section answers one question in plain language. Every claim carries an in-text citation, interviews are labelled as interviews, and my own planning targets are marked as such. Conflicting figures are shown as conflicting.</p>
   <div class="note reveal">Still to verify before final submission: agency websites, RA 7796 and RA 11534, and the worker figures that differ between reports (over 300,000 versus up to 340,000 a year).</div>
@@ -357,6 +432,14 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
     <li>Nearshore Americas. (n.d.). <i>Philippines bets $25 million to shield BPO jobs from AI disruption.</i> <a href="https://nearshoreamericas.com/philippines-bets-25-million-to-shield-bpo-jobs-from-ai-disruption/" target="_blank" rel="noopener">Link</a></li>
     <li>People Matters. (2026, August 5). <i>Generative AI puts Philippines BPO jobs under pressure as government races to reskill workforce.</i> <a href="https://sea.peoplemattersglobal.com/amp/news/ai-and-emerging-tech/generative-ai-puts-philippines-bpo-jobs-under-pressure-as-government-races-to-reskill-workforce-51271" target="_blank" rel="noopener">Link</a></li>
     <li>PSA Intelligence. (2026, August 25). <i>AI disruption and the situation of the Philippine IT-BPO industry.</i> <a href="https://reports.psaintelligence.com/philippines/2026/08/ai-disruption-and-the-situation-of-the-philippine-it-bpo-industry/" target="_blank" rel="noopener">Link</a></li>
+  </ul>
+
+  <h3 class="reveal" style="margin-top:28px">Photo and video credits</h3>
+  <ul class="refs reveal">
+    <li>Photos are from Wikimedia Commons under the licenses shown in each caption. Videos are embedded from YouTube and belong to their publishers.</li>
+    <li>ANC 24/7. (2026, April 25). <i>Bien Pilipinas: Many in BPO sector concerned about being replaced by AI</i> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=pZDmL0o8OZQ" target="_blank" rel="noopener">Link</a></li>
+    <li>ANC 24/7. (2026, July 22). <i>Business Outlook: IBPAP's Jack Madrid on how AI is transforming IT-BPM industry</i> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=Uho0ckDc8yY" target="_blank" rel="noopener">Link</a></li>
+    <li>Bloomberg Podcasts. (2024, August 28). <i>Humans and AI bots blur in the world's call center capital</i> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=NPJYKcu5si0" target="_blank" rel="noopener">Link</a></li>
   </ul>
 </section>
 </main>
@@ -380,6 +463,23 @@ footer{max-width:720px;margin:72px auto 0;padding-top:20px;border-top:1px solid 
   window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(updateBar); } }, {passive:true});
   window.addEventListener('resize', updateBar);
   updateBar();
+
+  /* active link in top menu */
+  var links = {};
+  document.querySelectorAll('.topnav a.lnk').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  var spy = Object.keys(links).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  function setActive(){
+    var y = window.scrollY + 120, cur = null;
+    spy.forEach(function(el){ if(el.getBoundingClientRect().top + window.scrollY <= y) cur = el.id; });
+    Object.keys(links).forEach(function(id){ links[id].classList.toggle('active', id === cur); });
+    if(cur && links[cur].scrollIntoView && links[cur].parentNode.parentNode.scrollWidth > links[cur].parentNode.parentNode.clientWidth){
+      var ul = links[cur].parentNode.parentNode, a = links[cur];
+      ul.scrollLeft = a.parentNode.offsetLeft - ul.clientWidth/2 + a.offsetWidth/2;
+    }
+  }
+  var spyTick = false;
+  window.addEventListener('scroll', function(){ if(!spyTick){ spyTick = true; requestAnimationFrame(function(){ setActive(); spyTick = false; }); } }, {passive:true});
+  setActive();
 
   /* counters */
   function fmt(n, dec){ return n.toFixed(dec); }
