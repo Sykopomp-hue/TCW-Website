@@ -173,6 +173,21 @@ figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size
 .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .hero-img{margin-top:28px}
 
+/* rubric additions */
+.box{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:18px 20px;margin:20px 0}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.box ul{margin:8px 0 0;padding-left:20px}
+.box li{margin-bottom:6px}
+.box .lbl{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
+.two .box{margin:0}
+.src{width:100%;border-collapse:collapse;margin:20px 0;font-size:.9rem}
+.src th,.src td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.src th{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.src td:first-child{font-weight:600;width:28%}
+.tablewrap{overflow-x:auto}
+@media (max-width:560px){.two{grid-template-columns:1fr}.src td:first-child{width:auto}}
+
 @media (max-width:560px){
   .dash{grid-template-columns:1fr 1fr}
   .gallery{grid-template-columns:1fr}
@@ -234,11 +249,11 @@ figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size
   <span class="kicker reveal">Dashboard</span>
   <h2 class="reveal">Jump to the part you want</h2>
   <div class="dash reveal">
-    <a class="tile" href="#issue"><span class="n">01 · ISSUE</span><b>Will AI take over?</b><small>The numbers, causes, effects and who has a stake.</small></a>
+    <a class="tile" href="#issue"><span class="n">01 · ISSUE</span><b>Will AI take over?</b><small>Scope, root causes, effects and who has a stake.</small></a>
     <a class="tile" href="#interviews"><span class="n">02 · INTERVIEWS</span><b>What workers said</b><small>Five BPO workers on how AI is arriving at work.</small></a>
-    <a class="tile" href="#approach"><span class="n">03 · SOLUTION</span><b>Reskill, then redeploy</b><small>My proposal and the three options I scored.</small></a>
+    <a class="tile" href="#approach"><span class="n">03 · SOLUTION</span><b>Reskill, then redeploy</b><small>How I chose it, the options I scored, and my own ideas.</small></a>
     <a class="tile" href="#pilot"><span class="n">04 · PILOT</span><b>How it would run</b><small>A one-year plan, step by step.</small></a>
-    <a class="tile" href="#evaluate"><span class="n">05 · RESULTS</span><b>Measuring success</b><small>SMART targets and what to watch.</small></a>
+    <a class="tile" href="#evaluate"><span class="n">05 · RESULTS</span><b>Measuring success</b><small>SMART targets, challenges and recommendations.</small></a>
     <a class="tile" href="#present"><span class="n">06 · WEBSITE</span><b>Why a website</b><small>Format, audience and how I cite sources.</small></a>
     <a class="tile media" href="#watch-ai"><span class="n">▶ VIDEO</span><b>AI on the call floor</b><small>Bloomberg on AI tools in PH call centers.</small></a>
     <a class="tile media" href="#watch-workers"><span class="n">▶ VIDEO</span><b>Workers' concerns</b><small>ANC with a BPO workers' group.</small></a>
@@ -255,6 +270,31 @@ figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size
   <p class="reveal">My issue sits under the globalization driver of technology: automation and AI replacing jobs in the Philippine BPO industry, and the common belief that AI will fully take over those jobs. It matters because about 1.9 million Filipinos work in the industry, which brings in roughly US$40 billion a year (BPO and Beyond, 2026). Many are young, many work nights, and many are first-time earners supporting a household.</p>
   <p class="reveal">The industry body IBPAP lowered its 2028 worker target from 2.5 million to between 1.85 and 2.14 million (Macayan, 2026a), and reported job growth has slowed to about 3% (PSA Intelligence, 2026). The risk is real. The question is how large it is and who gets hit first.</p>
   <div class="gallery"><figure class="photo reveal "><img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Teletech_call_cent_BACOLOD.jpg" alt="Rows of agents at workstations on a call center production floor" loading="lazy" decoding="async"><figcaption>A TeleTech production floor in the Philippines (2008). <span class="credit">Photo: Maverx · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Teletech_call_cent_BACOLOD.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="photo reveal "><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Cebu_IT_Park_top_view_Padrigas_%28Lahug%2C_Cebu_City%3B_01-09-2024%29.jpg/1280px-Cebu_IT_Park_top_view_Padrigas_%28Lahug%2C_Cebu_City%3B_01-09-2024%29.jpg" alt="Aerial view of office towers in Cebu IT Park" loading="lazy" decoding="async"><figcaption>Cebu IT Park, a major BPO hub outside Metro Manila. <span class="credit">Photo: Patrickroque01 · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Cebu_IT_Park_top_view_Padrigas_(Lahug,_Cebu_City;_01-09-2024).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure><figure class="photo reveal "><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Nighttime_Metro_Manila_skyline_seen_from_atop_of_Metrobank_Center_in_Taguig_City.jpg/1280px-Nighttime_Metro_Manila_skyline_seen_from_atop_of_Metrobank_Center_in_Taguig_City.jpg" alt="Metro Manila skyline lit up at night" loading="lazy" decoding="async"><figcaption>Metro Manila at night, when most voice accounts run for US clients. <span class="credit">Photo: YZJay · CC0 · <a href="https://commons.wikimedia.org/wiki/File:Nighttime_Metro_Manila_skyline_seen_from_atop_of_Metrobank_Center_in_Taguig_City.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption></figure></div>
+
+  <h3 class="reveal" id="problem">Problem statement: scope and measures</h3>
+  <div class="box reveal">
+    <span class="lbl">The problem</span>
+    <p>AI can now do much of the routine work that entry-level Filipino BPO agents do, but many of these workers are not yet being trained for the jobs that AI creates. If nothing changes, the people with the least experience lose work first.</p>
+  </div>
+  <div class="two reveal">
+    <div class="box"><span class="lbl">Scope</span><ul>
+      <li><b>Who:</b> entry-level voice and back-office agents in the Philippine IT-BPM industry, part of a 1.9 million workforce</li>
+      <li><b>Where:</b> the Philippines, especially hubs like Metro Manila and Cebu</li>
+      <li><b>When:</b> now until 2028, the year of IBPAP's workforce target</li></ul></div>
+    <div class="box"><span class="lbl">How I measure the problem</span><ul>
+      <li>Yearly job growth, now about 3% (PSA Intelligence, 2026)</li>
+      <li>IBPAP's 2028 target, cut from 2.5M to 1.85–2.14M workers (Macayan, 2026a)</li>
+      <li>Share of companies running AI pilots, now over two-thirds (People Matters, 2026)</li>
+      <li>Number of workers actually trained in AI each year</li></ul></div>
+  </div>
+  <h3 class="reveal">Root causes, not just symptoms</h3>
+  <p class="reveal">Slower hiring and a smaller 2028 target are symptoms. Looking underneath them, I found three root causes (my own analysis, based on the sources and interviews below):</p>
+  <ol class="reveal">
+    <li><b>The work is built on routine.</b> Much entry-level BPO work follows scripts and repeatable steps, which is exactly what AI does well.</li>
+    <li><b>Training has not kept pace.</b> Upskilling is uneven between companies (Khan, 2026), and one interviewee called it "more of a wish."</li>
+    <li><b>Companies compete on cost.</b> Automation savings are tempting, so without a plan for workers, cutting staff becomes the default.</li>
+  </ol>
+  <p class="reveal">My solution targets the second and third causes directly, because the first one, AI taking routine tasks, will not be reversed.</p>
 
   <h3 class="reveal">Causes, effects and stakeholders</h3>
   <p class="reveal">Tap or hover a card to open it.</p>
@@ -301,8 +341,18 @@ figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size
   <p class="reveal" style="margin-top:14px">Another interviewee, Joy, described her employer removing an AI tool and having staff handle the task again. Both show that AI use in BPO is still being tested, which supports my position that preparing workers matters more than predicting mass job loss.</p>
   <figure class="video reveal" id="watch-workers"><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/pZDmL0o8OZQ" title="Many in BPO sector concerned about being replaced by AI" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption><b>Many in BPO sector concerned about being replaced by AI</b> The BPO Industry Employees Network (BIEN) explains why workers are worried, which matches what my interviewees told me. <span class="credit">ANC Beyond the Exchange, April 2026 · 12 min · <a href="https://www.youtube.com/watch?v=pZDmL0o8OZQ" target="_blank" rel="noopener">Watch on YouTube</a></span></figcaption></figure>
 
-  <h3 class="reveal">Sources I used</h3>
-  <p class="reveal">I used industry and government reporting (Outsource Accelerator, People Matters, PSA Intelligence, BPO and Beyond, Nearshore Americas), a Singapore policy report (Free Malaysia Today), and my own interviews. Where two reports disagree, I say so instead of picking one. Reports put the number of workers to be upskilled at over 300,000 and at up to 340,000 a year. The full list is in <a href="#refs">References</a>.</p>
+  <h3 class="reveal" id="sources">Sources I used, and how far I trust them</h3>
+  <p class="reveal">I did not treat every source the same. This is how I judged each type:</p>
+  <div class="tablewrap reveal"><table class="src">
+    <tr><th>Source type</th><th>Why I used it</th><th>Its limits</th></tr>
+    <tr><td>Industry news (Outsource Accelerator, Nearshore Americas, People Matters, BPO and Beyond)</td><td>Current, specific figures on jobs, funding and AI pilots</td><td>Written for business readers, so it focuses on companies more than workers</td></tr>
+    <tr><td>IBPAP statements (reported in the news and the ANC interview)</td><td>The industry body that would lead my solution</td><td>It represents companies, so calling the threat "manageable" may lean optimistic</td></tr>
+    <tr><td>Government (DOLE, DICT, TESDA, and the laws RA 7796 and RA 11534)</td><td>Official programs, targets and legal mandates</td><td>Targets are plans, not results yet</td></tr>
+    <tr><td>Research report (PSA Intelligence)</td><td>Industry growth figures and outlook</td><td>A private research firm, so I used it for trends, not as the only proof</td></tr>
+    <tr><td>Singapore case (Free Malaysia Today)</td><td>A working model from another country</td><td>Singapore is richer, so the model cannot be copied directly</td></tr>
+    <tr><td>My five interviews</td><td>First-hand experience from real BPO workers</td><td>Five people cannot represent 1.9 million, so they illustrate the issue rather than prove it</td></tr>
+  </table></div>
+  <p class="reveal"><b>Putting the perspectives together.</b> The industry says the threat is manageable. The government says jobs are being transformed, not erased. Workers say they are worried and that training is uneven. These views are not as far apart as they seem: the industry has the money, the government has the programs, and workers need access to both. My solution sits where the three meet. Where reports disagree, as on the number of workers to be upskilled (over 300,000 versus up to 340,000 a year), I show both figures instead of picking one. The full list is in <a href="#refs">References</a>.</p>
 </section>
 
 <!-- 2 -->
@@ -332,6 +382,38 @@ figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size
       <div class="row"><strong>3 · Income support and retraining (Singapore model)</strong><span class="gwa">2.4 · Needs refinement</span></div>
       <div class="track"><i></i></div>
       <small>Scores 3, 2, 2, 3, 2. Singapore pays a second-diploma subsidy plus up to S$3,000 a month for two years to workers aged 40 and above (Free Malaysia Today, 2025). It is costly, has no published re-employment figures, and would need new funding here.</small>
+    </div>
+  </div>
+
+  <h3 class="reveal" id="process">How I arrived at this solution</h3>
+  <ul class="smart">
+    <li class="reveal"><span class="l">1</span><div><b>Defined the problem</b><span>Set the scope and measures, and separated root causes from symptoms.</span></div></li>
+    <li class="reveal"><span class="l">2</span><div><b>Researched and interviewed</b><span>Read industry, government and foreign sources, then interviewed five BPO workers to test what the reports said.</span></div></li>
+    <li class="reveal"><span class="l">3</span><div><b>Listed options</b><span>Found three realistic solutions already discussed or in use: industry reskilling, redeployment policy, and Singapore-style income support.</span></div></li>
+    <li class="reveal"><span class="l">4</span><div><b>Scored them</b><span>Rated each from 1 to 4 on the five class criteria and compared the averages.</span></div></li>
+    <li class="reveal"><span class="l">5</span><div><b>Combined and improved</b><span>Training alone does not help if trained workers are still cut, so I joined the top two options and added my own ideas below.</span></div></li>
+  </ul>
+
+  <h3 class="reveal">What I added to the existing programs</h3>
+  <p class="reveal">The IBPAP and TESDA programs already exist. These three ideas are my own additions, shaped by my interviews and my experience working nights:</p>
+  <div class="bento reveal">
+    <div class="card" tabindex="0" role="button" aria-expanded="false">
+      <span class="hint">+</span><span class="tag">My idea</span>
+      <h3>Train on paid shift time</h3>
+      <p class="short">Short sessions inside the shift, not after it.</p>
+      <div class="more"><div><p>Night-shift workers are too tired to study after work. Running 30 to 45 minute sessions during slower call hours means workers do not give up sleep to train.</p></div></div>
+    </div>
+    <div class="card" tabindex="0" role="button" aria-expanded="false">
+      <span class="hint">+</span><span class="tag">My idea</span>
+      <h3>First in line for new roles</h3>
+      <p class="short">Trained workers are considered before outside hires.</p>
+      <div class="more"><div><p>When AI creates new roles, such as AI quality checking or data annotation, workers who finished training are considered first. This gives a real reason to finish the program.</p></div></div>
+    </div>
+    <div class="card wide" tabindex="0" role="button" aria-expanded="false">
+      <span class="hint">+</span><span class="tag">My idea</span>
+      <h3>Workers help shape the training</h3>
+      <p class="short">A quarterly feedback check with agents.</p>
+      <div class="more"><div><p>Aeon's comment that training is "more of a wish" showed me that programs can look good on paper and still miss the people they are for. A short survey of agents each quarter would show whether the training is reaching them and what to change.</p></div></div>
     </div>
   </div>
 
@@ -411,6 +493,31 @@ figure.photo figcaption,figure.video figcaption{padding:12px 16px 14px;font-size
       <div class="more"><div><p>If AI replaces roles faster than expected, add government retraining and income support from the Singapore model as a second layer.</p></div></div>
     </div>
   </div>
+
+  <h3 class="reveal" id="assess">Challenges and opportunities</h3>
+  <div class="two reveal">
+    <div class="box"><span class="lbl">Challenges</span><ul>
+      <li>Redeployment is voluntary, so some companies may still cut staff.</li>
+      <li>No pilot results are published yet, which is why my plan scored lowest on measurable impact.</li>
+      <li>It is hard to tell job losses caused by AI from losses caused by weak demand.</li>
+      <li>Night-shift fatigue can lower attendance.</li></ul></div>
+    <div class="box"><span class="lbl">Opportunities</span><ul>
+      <li>New AI roles, such as data annotation, quality checking and analytics (Macayan, 2026b).</li>
+      <li>Human skills like empathy and problem-solving stay valuable as AI handles routine work.</li>
+      <li>Funding, laws and partners are already in place, so the pilot does not start from zero.</li>
+      <li>The Philippines can move up from routine outsourcing to higher-value work.</li></ul></div>
+  </div>
+
+  <h3 class="reveal">My recommendations</h3>
+  <ul class="reveal">
+    <li><b>IBPAP:</b> publish training and redeployment results every year, so success can be measured and not just promised.</li>
+    <li><b>BPO companies:</b> adopt a "redeploy first" policy, and train during paid shift hours.</li>
+    <li><b>DOLE and TESDA:</b> record the reason for each separation, and offer certificates for AI skills so training counts across companies.</li>
+    <li><b>Workers:</b> join the training programs that are available, and keep a record of new skills to use when applying for new roles.</li>
+  </ul>
+
+  <h3 class="reveal">What I learned from this process</h3>
+  <p class="reveal">I started with the question "Will AI take BPO jobs?" and learned that the better question is "Who gets prepared, and who does not?" The interviews showed me that how a company rolls out AI matters as much as the technology itself. I also learned that solutions work better combined than competing: reskilling and redeployment are each weak alone but strong together. Finally, the gap I could not close was proof. Real pilot results are what this plan needs most, and that is the first thing I would look for if I continued this project.</p>
 </section>
 
 <!-- 4 -->
